@@ -1,12 +1,9 @@
 # 导入操作系统接口模块 - 提供与操作系统交互的功能，如文件路径操作、目录创建等
 import os
-
 # 导入HTTP请求库 - 用于发送HTTP/1.1请求，获取网页内容/API数据等
 import requests
-
 # 从bs4库导入BeautifulSoup - HTML/XML解析库，用于从网页中提取和组织数据
 from bs4 import BeautifulSoup
-
 # 导入时间模块 - 提供时间相关的功能，如延时、时间戳转换等
 import time
 
