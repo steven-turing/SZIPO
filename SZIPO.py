@@ -27,6 +27,10 @@ def download_pdf(url, filename):
 def get_pdf_links():
     """获取页面上的PDF链接"""
     response = requests.get(BASE_URL, headers=HEADERS)
+    # 打印响应状态码
+    print(f"响应状态码: {response.status_code}")
+    # 打印页面内容（前500个字符）
+    print(f"页面内容前500个字符: {response.text[:5000]}")
     soup = BeautifulSoup(response.text, 'html.parser')
 
     pdf_links = []
