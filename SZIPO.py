@@ -33,12 +33,12 @@ def get_pdf_links():
         # 打印响应状态码
         print(f"响应状态码: {response.status_code}")
         # 打印页面内容（前500个字符）
-        print(f"页面内容前500个字符: {response.text[:5000]}")
+        #print(f"页面内容前500个字符: {response.text[:5000]}")
         soup = BeautifulSoup(response.text, 'html.parser')
 
         pdf_links = []
-        # 根据实际页面结构调整选择器
-        for link in soup.select('a[href$=".pdf"]'):
+        # 更新选择器
+        for link in soup.select('#pdf-container a[href$=".pdf"]'):
             pdf_url = link['href']
             if not pdf_url.startswith('http'):
                 pdf_url = f'https://listing.szse.cn{pdf_url}'
