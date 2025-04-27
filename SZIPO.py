@@ -37,12 +37,14 @@ def get_pdf_links():
         soup = BeautifulSoup(response.text, 'html.parser')
 
         pdf_links = []
-        # 更新选择器
-        for link in soup.select('#pdf-container a[href$=".pdf"]'):
-            pdf_url = link['href']
-            if not pdf_url.startswith('http'):
-                pdf_url = f'https://listing.szse.cn{pdf_url}'
-            pdf_links.append(pdf_url)
+        matched_links = soup.select('your_new_selector')
+        print(f"匹配到的链接数量: {len(matched_links)}")
+        for link in matched_links:
+            pdf_url = link.get('href')
+            if pdf_url and pdf_url.endswith('.pdf'):
+                if not pdf_url.startswith('http'):
+                    pdf_url = f'https://listing.szse.cn{pdf_url}'
+                pdf_links.append(pdf_url)
     else:
         print(f"请求失败，状态码: {response.status_code}")
     return pdf_links
