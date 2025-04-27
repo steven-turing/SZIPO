@@ -30,7 +30,7 @@ def get_pdf_links():
     # 打印响应状态码
     print(f"响应状态码: {response.status_code}")
     # 打印页面内容（前500个字符）
-    print(f"页面内容前500个字符: {response.text[:5000]}")
+    print(f"页面内容前500个字符: {response.text[:500]}")
     soup = BeautifulSoup(response.text, 'html.parser')
 
     pdf_links = []
