@@ -45,7 +45,7 @@ def get_pdf_links():
             pdf_links.append(pdf_url)
     else:
         print(f"请求失败，状态码: {response.status_code}")
-    return pdf_link
+    return pdf_links
 
 
 def main():
