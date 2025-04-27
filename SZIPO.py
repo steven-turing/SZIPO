@@ -45,27 +45,7 @@ def get_pdf_links():
             pdf_links.append(pdf_url)
     else:
         print(f"请求失败，状态码: {response.status_code}")
-    return pdf_links
-
-
-def get_pdf_links():
-    """获取页面上的PDF链接"""
-    response = requests.get(BASE_URL, headers=HEADERS)
-    # 打印响应状态码
-    print(f"响应状态码: {response.status_code}")
-    # 打印页面内容（前500个字符）
-    print(f"页面内容前500个字符: {response.text[:5000]}")
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    pdf_links = []
-    # 根据实际页面结构调整选择器
-    for link in soup.select('a[href$=".pdf"]'):
-        pdf_url = link['href']
-        if not pdf_url.startswith('http'):
-            pdf_url = f'https://listing.szse.cn{pdf_url}'
-        pdf_links.append(pdf_url)
-
-    return pdf_links
+    return pdf_link
 
 
 def main():
